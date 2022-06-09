@@ -1,0 +1,104 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>HTML Project</title>
+    <style>
+        body {
+            width: 30%;
+            margin: auto;
+        }
+
+        span {
+            width: 100px;
+        }
+
+        .main {
+            width: 70%;
+            margin: auto;
+        }
+    </style>
+</head>
+
+<body>
+    <center>
+        <h1>Simple Interest Calculator</h1>
+    </center>
+    <br>
+    <br>
+    <div class="main">
+        <div><span>Amount</span> &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; <span><input type="number"
+                    id="amount"></span></div>
+        <br>
+        <div><span>Interest Rate</span> &nbsp; &nbsp; &nbsp; <span><input type="range" min="0.25" max="20" value="10"
+                    id="perval" step="0.25" onchange="pervalf()"></span><span id="valper">10</span>%</div>
+        <br>
+        <div><span>No. of Years</span><span> &nbsp; &nbsp; &nbsp; &nbsp; <select name="year" id="year">
+                    <option value="1">1</option>
+                    <option value="2">2</option>
+                    <option value="3">3</option>
+                    <option value="4">4</option>
+                    <option value="5">5</option>
+                    <option value="6">6</option>
+                    <option value="7">7</option>
+                    <option value="8">8</option>
+                    <option value="9">9</option>
+                    <option value="10">10</option>
+                </select></span></div>
+        <br>
+        <button onclick="btn()">Compute Interest</button>
+        <br><br>
+        <div id="result">
+            <p> <span id="res11"></span><span id="res1" style="background-color: yellow;"></span></p>
+            <p> <span id="res21"></span><span id="res2" style="background-color: yellow;"></span></p>
+            <p> <span id="res31"></span><span id="res3" style="background-color: yellow;"></span></p>
+            <p> <span id="res41"></span><span id="res4" style="background-color: yellow;"></span></p>
+            <br>
+        </div>
+    </div>
+    <br>
+    <p style="margin-left: 30px;">© Everyone Can Get Rich
+        <br>
+        This Calculator belongs to Tanaya Das 
+    </p>
+    <script>
+        function pervalf() {
+            var per = document.getElementById("valper");
+            var perval = document.getElementById("perval").value;
+            per.innerHTML = perval;
+        }
+        function btn() {
+            var amount = document.getElementById("amount").value;
+            if (amount == "" || amount == null || amount == 0) {
+                alert("Enter a Positive Number");
+            }
+            else {
+                var perval = document.getElementById("perval").value;
+                var year = document.getElementById("year").value;
+                var ans = (amount * perval * year) / 100;
+                var res1 = document.getElementById("res1");
+                var res2 = document.getElementById("res2");
+                var res3 = document.getElementById("res3");
+                var res4 = document.getElementById("res4");
+                var res11 = document.getElementById("res11");
+                var res21 = document.getElementById("res21");
+                var res31 = document.getElementById("res31");
+                var res41 = document.getElementById("res41");
+                var ay = parseInt(year) + 2022;
+                res11.innerHTML = "if you deposit ";
+                res21.innerHTML = "at an Interest rate of ";
+                res31.innerHTML = "you will recive an amount of ";
+                res41.innerHTML = "in the year ";
+                res1.innerHTML = amount;
+                res2.innerHTML = perval + "%";
+                res3.innerHTML = ans;
+                res4.innerHTML = ay;
+            }
+        }
+    </script>
+</body>
+
+</html>
